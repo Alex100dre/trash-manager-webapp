@@ -1,0 +1,13 @@
+{
+  "trash": {
+    "yellow": {
+      "name": "Poubelle jaune"
+    },
+    "brown": {
+      "name": "Poubelle marron"
+    },
+    "action": {
+      "takeout": "Sortir"
+    }
+  }
+}

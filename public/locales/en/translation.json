@@ -1,0 +1,13 @@
+{
+  "trash": {
+    "yellow": {
+      "name": "Yellow trash can"
+    },
+    "brown": {
+      "name": "Brown trash can"
+    },
+    "action": {
+      "takeout": "Take out"
+    }
+  }
+}
