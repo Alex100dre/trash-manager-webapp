@@ -8,4 +8,4 @@ COPY yarn.lock /app/yarn.lock
 
 RUN yarn install
 
-CMD ["npm", "run", "start"]
+CMD ["yarn", "run", "start"]
