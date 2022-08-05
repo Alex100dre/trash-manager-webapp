@@ -8,6 +8,7 @@
     },
     "action": {
       "takeout": "Sortir"
-    }
+    },
+    "noRemovalForToday": "Pas de poubelle à sortir aujourd'hui"
   }
 }

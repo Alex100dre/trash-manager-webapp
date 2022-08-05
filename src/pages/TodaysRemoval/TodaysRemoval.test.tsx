@@ -1,8 +1,8 @@
 import React from "react";
 import {render, screen} from "@testing-library/react";
 import TodaysRemoval, {TodaysRemovalProps} from "./TodaysRemoval";
-import {Day, Trash, TrashVariant} from "../../types/trash.type";
-import Card, {CardProps} from "./components/Card/Card";
+import {Day, TrashVariant} from "../../types/trash.type";
+import {CardProps} from "./components/Card/Card";
 
 const defaultProps: TodaysRemovalProps = {
     removal: {
@@ -26,6 +26,7 @@ test("it should display a card for today's trash can removal", () => {
 
 test('it should display a message when there is no trash can removal for today', () => {
     render(<TodaysRemoval removal={null} />);
-    const noTrashMessage = screen.getByText(/Pas de poubelle à sortir aujourd'hui/i);
+    // TODO: Mock i18next to avoid warning during  test run
+    const noTrashMessage = screen.getByText(/trash.noRemovalForToday/i);
     expect(noTrashMessage).toBeInTheDocument();
 });

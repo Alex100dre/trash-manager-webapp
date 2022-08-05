@@ -8,6 +8,7 @@
     },
     "action": {
       "takeout": "Take out"
-    }
+    },
+    "noRemovalForToday": "No trash to take out for today"
   }
 }
