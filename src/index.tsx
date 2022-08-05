@@ -5,6 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './i18n';
 import {CircularProgress} from "@mui/material";
+import {store} from "./store";
+import {Provider} from 'react-redux';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -12,7 +14,9 @@ const root = ReactDOM.createRoot(
 root.render(
     <React.StrictMode>
         <Suspense fallback={<CircularProgress />}>
-            <App />
+            <Provider store={store}>
+                <App />
+            </Provider>
         </Suspense>
     </React.StrictMode>
 );

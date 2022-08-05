@@ -4,14 +4,14 @@ import Card from "./components/Card/Card";
 import {Container} from "@mui/material";
 
 interface OwnProps {
-    readonly trash: Trash | null
+    readonly removal: Trash | null
 }
 
-export type CurrentTrashProps = OwnProps;
+export type TodaysRemovalProps = OwnProps;
 
-const CurrentTrash: FunctionComponent<CurrentTrashProps> = ({ trash}) => {
+const TodaysRemoval: FunctionComponent<TodaysRemovalProps> = ({ removal}) => {
 
-    const renderCard = () => !!trash ? <Card {...trash} /> : <p>Pas de poubelle à sortir aujourd'hui</p>
+    const renderCard = () => !!removal ? <Card {...removal} /> : <p>Pas de poubelle à sortir aujourd'hui</p>
 
     return (
         <Container>
@@ -20,4 +20,4 @@ const CurrentTrash: FunctionComponent<CurrentTrashProps> = ({ trash}) => {
     )
 };
 
-export default CurrentTrash;
+export default TodaysRemoval;

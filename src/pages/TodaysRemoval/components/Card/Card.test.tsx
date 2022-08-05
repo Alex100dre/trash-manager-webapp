@@ -6,8 +6,8 @@ import {backgrounds} from "./Card.style";
 
 const defaultProps: CardProps = {
     id: TrashVariant.Yellow,
-    takeOutDays: [Day.Monday, Day.Wednesday],
-    lastTakeOutDate: null
+    removalDays: [Day.Monday, Day.Wednesday],
+    lastRemoval: '2022-07-25 14:02:51.993225+00'
 }
 
 jest.mock('react-i18next', () => ({

@@ -1,14 +1,14 @@
 import React from "react";
 import {render, screen} from "@testing-library/react";
-import CurrentTrash, {CurrentTrashProps} from "./CurrentTrash";
+import TodaysRemoval, {TodaysRemovalProps} from "./TodaysRemoval";
 import {Day, Trash, TrashVariant} from "../../types/trash.type";
 import Card, {CardProps} from "./components/Card/Card";
 
-const defaultProps: CurrentTrashProps = {
-    trash: {
+const defaultProps: TodaysRemovalProps = {
+    removal: {
         id: TrashVariant.Yellow,
-        takeOutDays: [Day.Monday, Day.Wednesday],
-        lastTakeOutDate: null
+        removalDays: [Day.Monday, Day.Wednesday],
+        lastRemoval: '2022-07-25 14:02:51.993225+00'
     }
 }
 
@@ -19,13 +19,13 @@ jest.mock("./components/Card/Card.tsx", () => (props: CardProps) => {
 });
 
 test("it should display a card for today's trash can removal", () => {
-    render(<CurrentTrash {...defaultProps} />);
+    render(<TodaysRemoval {...defaultProps} />);
 
-    expect(mockCard).toHaveBeenCalledWith({...defaultProps.trash});
+    expect(mockCard).toHaveBeenCalledWith({...defaultProps.removal});
 });
 
 test('it should display a message when there is no trash can removal for today', () => {
-    render(<CurrentTrash trash={null} />);
+    render(<TodaysRemoval removal={null} />);
     const noTrashMessage = screen.getByText(/Pas de poubelle à sortir aujourd'hui/i);
     expect(noTrashMessage).toBeInTheDocument();
 });

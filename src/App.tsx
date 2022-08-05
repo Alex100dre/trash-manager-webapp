@@ -1,19 +1,23 @@
-import React from 'react';
-import './App.css';
+import React, {useEffect} from 'react';
 import {Route, BrowserRouter, Routes} from "react-router-dom";
-import CurrentTrash from "./pages/CurrentTrash/CurrentTrash";
-import {Day, TrashVariant} from "./types/trash.type";
+import './App.css';
+import TodaysRemoval from "./pages/TodaysRemoval/TodaysRemoval";
+import {fetchTrashes, selectTodaysRemoval} from "./store/trash/trash.slice";
+import {useAppDispatch, useAppSelector} from "./hooks";
 
 function App() {
+    const dispatch = useAppDispatch();
+    const todaysRemoval = useAppSelector(selectTodaysRemoval) || null;
+
+    useEffect(() => {
+        dispatch(fetchTrashes())
+    }, [dispatch])
+
   return (
       <BrowserRouter>
         <div className="App">
           <Routes>
-            <Route path="/" element={<CurrentTrash trash={{
-              id: TrashVariant.Yellow,
-              takeOutDays: [Day.Tuesday, Day.Wednesday],
-              lastTakeOutDate: null
-            }} />}>
+            <Route path="/" element={<TodaysRemoval removal={todaysRemoval} />}>
             </Route>
           </Routes>
         </div>
