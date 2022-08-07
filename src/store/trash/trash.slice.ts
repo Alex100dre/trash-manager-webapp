@@ -42,6 +42,7 @@ export const trashSlice = createSlice({
 export const { fetchStart, fetchSuccess, fetchError } = trashSlice.actions
 
 export const selectTodaysRemoval = (state: RootState) => state.trash.todaysRemoval
+export const selectTrashDataStatus = (state: RootState) => state.trash.status
 
 export default trashSlice.reducer
 

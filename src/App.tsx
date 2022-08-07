@@ -14,6 +14,8 @@ function App() {
         dispatch(fetchTrashes())
     }, [dispatch])
 
+    // TODO: lazyload routes (CF: https://linguinecode.com/post/code-splitting-react-router-with-react-lazy-and-react-suspense)
+
   return (
       <BrowserRouter>
         <MainHeader />
