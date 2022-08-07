@@ -1,9 +1,10 @@
 import React, {useEffect} from 'react';
 import {Route, BrowserRouter, Routes} from "react-router-dom";
-import './App.css';
+import { Content } from './App.style'
 import TodaysRemoval from "./pages/TodaysRemoval/TodaysRemoval";
 import {fetchTrashes, selectTodaysRemoval} from "./store/trash/trash.slice";
 import {useAppDispatch, useAppSelector} from "./hooks";
+import MainHeader from "./components/MainHeader/MainHeader";
 
 function App() {
     const dispatch = useAppDispatch();
@@ -15,12 +16,13 @@ function App() {
 
   return (
       <BrowserRouter>
-        <div className="App">
+        <MainHeader />
+        <Content>
           <Routes>
             <Route path="/" element={<TodaysRemoval removal={todaysRemoval} />}>
             </Route>
           </Routes>
-        </div>
+        </Content>
       </BrowserRouter>
   );
 }
